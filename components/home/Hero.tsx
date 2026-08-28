@@ -3,15 +3,16 @@
 import Link from "next/link";
 import { HeroScene } from "./HeroScene";
 import { StatCounter } from "./StatCounter";
-import { IconStack, IconGrid, IconOrbit, IconShield, IconSpark } from "./icons";import { siteConfig, stats } from "@/lib/site-data";
+import { IconStack, IconGrid, IconOrbit, IconShield, IconSpark } from "./icons";
+import { siteConfig, stats } from "@/lib/site-data";
 
 const ecosystem = [
-  { name: "SAP", logo: "/images/solutions/AWS.png" },
-  { name: "Salesforce", logo: "/images/solutions/Google Cloud.png" },
-  { name: "Odoo", logo: "/images/solutions/odoo_logo.svg" },
-  { name: "Salesforce", logo: "/images/solutions/Salesforce Logo.jpeg" },
-  { name: "Swyftflo", logo: "/images/solutions/Swyftflo.png" },
-  { name: "Microsoft", logo: "/images/solutions/Microsoft.webp" },
+  { name: "SAP", logo: "/images/solutions/SAP.jpg" },
+  { name: "Salesforce", logo: "/images/solutions/salesforce.png" },
+  { name: "Odoo", logo: "/images/solutions/Odoo.png" },
+  { name: "Swyftflo", logo: "/images/solutions/swyftflo.png" },
+  { name: "Microsoft", logo: "/images/solutions/Microsoft.png" },
+  { name: "AWS", logo: "/images/solutions/AWS.png" },
   { name: "AI Systems", logo: null },
 ];
 
