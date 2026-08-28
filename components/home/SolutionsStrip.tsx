@@ -5,6 +5,7 @@ const solutions = [
   { name: "Salesforce", logo: "https://zql0rfjwszzixew9.public.blob.vercel-storage.com/solutions/Salesforce%20Logo.jpeg" },
   { name: "Odoo", logo: "https://zql0rfjwszzixew9.public.blob.vercel-storage.com/solutions/odoo_logo.svg" },
   { name: "Swyftflo", logo: "https://zql0rfjwszzixew9.public.blob.vercel-storage.com/solutions/Swyftflo.png" },
+  { name: "Databricks", logo: "/images/Databricks_Logo.png" },
 ];
 
 export function SolutionsStrip() {
