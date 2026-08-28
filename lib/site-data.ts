@@ -295,10 +295,11 @@ export const regions: Region[] = [
   { region: "Sri Lanka", activeMarket: true, targetMarket: true, presence: "Headquarters", focus: "SAP, Salesforce, Odoo, Digital Transformation" },
   { region: "India", activeMarket: true, targetMarket: true, presence: "Delivery & Partner Ecosystem", focus: "SAP & Enterprise Applications" },
   { region: "UAE", activeMarket: true, targetMarket: true, presence: "Partner Network", focus: "Digital Transformation & CRM" },
+  { region: "USA", activeMarket: true, targetMarket: true, presence: "Business Development Activities", focus: "Technology Consulting & Strategic Partnerships" },
   { region: "KSA", activeMarket: false, targetMarket: true, presence: "Expansion Market", focus: "SAP, Cloud & Transformation Projects" },
   { region: "Oman", activeMarket: false, targetMarket: true, presence: "Expansion Market", focus: "ERP & Business Process Transformation" },
   { region: "Switzerland", activeMarket: false, targetMarket: true, presence: "Strategic Growth Market", focus: "Consulting & Enterprise Technology" },
-  { region: "USA", activeMarket: true, targetMarket: true, presence: "Business Development Activities", focus: "Technology Consulting & Strategic Partnerships" },
+  
 ];
 
 export const clients = [

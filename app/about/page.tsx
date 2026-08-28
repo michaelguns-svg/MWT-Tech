@@ -150,12 +150,12 @@ export default function AboutPage() {
       {/* SECTION 3: Culture / environment showcase — full-width image band */}
       <section className="bg-black">
         <Section className="!py-0 lg:!py-0">
-          <div className="relative h-[450px] overflow-hidden rounded-3xl border border-white/10">
+          <div className="relative h-[535px] overflow-hidden rounded-3xl border border-white/10">
             <Image
-              src="https://zql0rfjwszzixew9.public.blob.vercel-storage.com/background/untitled-03612.JPG"
+              src="/images/untitled-03773.JPG"
               alt="Mawkish team and workspace"
               fill
-              className="object-cover"
+              className="object-cover scale-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
             <div className="absolute bottom-6 left-6 max-w-xs rounded-2xl border border-white/15 bg-black/40 p-5 backdrop-blur-xl">
@@ -187,6 +187,7 @@ export default function AboutPage() {
                 alt="Hatim Malick - Chairman"
                 fill
                 className="object-cover"
+                style={{ objectPosition: "75% 30%" }}
               />
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent" />
             </div>
@@ -240,21 +241,40 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-3">
-            {regions.map((r) => (
-              <div
-                key={r.region}
-                className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.02] px-5 py-3 backdrop-blur-xl"
-              >
-                <span
-                  className={`h-2 w-2 rounded-full ${
-                    r.activeMarket ? "bg-mw-mint" : "bg-white/30"
-                  }`}
-                />
-                <span className="text-sm font-semibold text-white">{r.region}</span>
-                <span className="text-xs text-white/50">{r.presence}</span>
-              </div>
-            ))}
+          <div className="mt-12 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b border-white/10 text-xs font-semibold uppercase tracking-widest text-white/40">
+                  <th className="px-6 py-4">Region</th>
+                  <th className="px-6 py-4">Status</th>
+                  <th className="hidden px-6 py-4 sm:table-cell">Presence</th>
+                  <th className="hidden px-6 py-4 lg:table-cell">Focus</th>
+                </tr>
+              </thead>
+              <tbody>
+                {regions.map((r) => (
+                  <tr key={r.region} className="border-b border-white/5 last:border-0">
+                    <td className="px-6 py-4 text-sm font-semibold text-white">{r.region}</td>
+                    <td className="px-6 py-4">
+                      <span
+                        className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${
+                          r.activeMarket ? "bg-mw-mint/10 text-mw-mint" : "bg-white/5 text-white/50"
+                        }`}
+                      >
+                        <span
+                          className={`h-1.5 w-1.5 rounded-full ${
+                            r.activeMarket ? "bg-mw-mint" : "bg-white/30"
+                          }`}
+                        />
+                        {r.activeMarket ? "Active" : "Expansion"}
+                      </span>
+                    </td>
+                    <td className="hidden px-6 py-4 text-sm text-white/60 sm:table-cell">{r.presence}</td>
+                    <td className="hidden px-6 py-4 text-sm text-white/60 lg:table-cell">{r.focus}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </Section>
       </section>
