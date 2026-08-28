@@ -27,7 +27,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "3", label: "Enterprise Platforms", detail: "SAP, Salesforce & Odoo" },
+  { value: "4", label: "Enterprise Platforms", detail: "SAP, Salesforce & Odoo" },
   { value: "8", label: "Industries Served" },
   { value: "7", label: "Active & Target Markets" },
   { value: "6", label: "Core Operating Principles" },
