@@ -108,7 +108,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
             className="w-full rounded-lg border border-mw-line px-4 py-2.5 text-sm outline-none focus:border-mw-secondary"
           >
             {intents.map((i) => (
-              <option key={i.value} value={i.value}>
+              <option key={i.value} value={i.value} className="bg-white text-neutral-900">
                 {i.label}
               </option>
             ))}
