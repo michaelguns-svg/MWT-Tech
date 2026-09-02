@@ -2,11 +2,23 @@
 
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 
-export function BlogForm() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+export type BlogFormProps = {
+  /** Pass an id to switch the form into edit mode (pre-filled, PUTs to an existing post). Omit for create mode. */
+  postId?: string;
+  initialTitle?: string;
+  initialContent?: string;
+  /** URL of the post's existing saved image, if any (edit mode only). */
+  initialImageUrl?: string;
+};
+
+export function BlogForm({ postId, initialTitle = "", initialContent = "", initialImageUrl }: BlogFormProps) {
+  const isEditing = Boolean(postId);
+
+  const [title, setTitle] = useState(initialTitle);
+  const [content, setContent] = useState(initialContent);
   const [image, setImage] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [existingImageUrl, setExistingImageUrl] = useState<string | null>(initialImageUrl ?? null);
+  const [newImagePreview, setNewImagePreview] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -15,13 +27,17 @@ export function BlogForm() {
   // Build (and clean up) a local preview URL whenever a new image is chosen.
   useEffect(() => {
     if (!image) {
-      setImagePreview(null);
+      setNewImagePreview(null);
       return;
     }
     const url = URL.createObjectURL(image);
-    setImagePreview(url);
+    setNewImagePreview(url);
     return () => URL.revokeObjectURL(url);
   }, [image]);
+
+  // Whatever should currently be shown in the preview box: a newly-picked
+  // file takes priority, otherwise fall back to the post's existing image.
+  const imagePreview = newImagePreview ?? existingImageUrl;
 
   function handleImageChange(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0] ?? null;
@@ -30,6 +46,7 @@ export function BlogForm() {
 
   function clearImage() {
     setImage(null);
+    setExistingImageUrl(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
   }
 
@@ -44,13 +61,12 @@ export function BlogForm() {
     if (image) payload.append("image", image);
 
     try {
-      // TODO: this endpoint doesn't exist yet — point it at your real
+      // TODO: these endpoints don't exist yet — point them at your real
       // backend once the storage/auth setup is decided, e.g.
       // `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs`
-      const res = await fetch("/api/admin/blogs", {
-        method: "POST",
-        body: payload,
-      });
+      const url = isEditing ? `/api/admin/blogs/${postId}` : "/api/admin/blogs";
+      const method = isEditing ? "PUT" : "POST";
+      const res = await fetch(url, { method, body: payload });
       if (!res.ok) throw new Error("Saving isn't connected to a backend yet.");
       setStatus("success");
     } catch (err) {
@@ -95,7 +111,7 @@ export function BlogForm() {
           <button
             type="button"
             onClick={clearImage}
-            disabled={!image}
+            disabled={!image && !existingImageUrl}
             className="text-xs font-semibold text-mw-ink/40 transition hover:text-mw-secondary disabled:opacity-40 disabled:hover:text-mw-ink/40"
           >
             Clear
@@ -104,7 +120,7 @@ export function BlogForm() {
 
         {imagePreview ? (
           <label htmlFor="image" className="block cursor-pointer overflow-hidden rounded-xl border border-mw-line">
-            {/* eslint-disable-next-line @next/next/no-img-element -- local blob preview of an unsaved upload */}
+            {/* eslint-disable-next-line @next/next/no-img-element -- may be a local blob preview of an unsaved upload */}
             <img src={imagePreview} alt="Cover preview" className="h-56 w-full object-cover" />
           </label>
         ) : (
@@ -158,7 +174,7 @@ export function BlogForm() {
       {status === "error" && <p className="text-sm text-red-600">{errorMessage}</p>}
       {status === "success" && (
         <p className="text-sm text-mw-secondary">
-          Form data is ready to send — connect the Save button to your backend to actually publish it.
+          Form data is ready to send — connect the Save button to your backend to actually {isEditing ? "update" : "publish"} it.
         </p>
       )}
 
@@ -167,7 +183,7 @@ export function BlogForm() {
         disabled={status === "saving"}
         className="w-full rounded-full bg-mw-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-mw-secondary disabled:opacity-60 sm:w-auto"
       >
-        {status === "saving" ? "Saving…" : "Save Blog Post"}
+        {status === "saving" ? "Saving…" : isEditing ? "Save Changes" : "Save Blog Post"}
       </button>
     </form>
   );
