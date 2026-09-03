@@ -25,7 +25,7 @@ const inter = Inter({
 
 const jetbrainsMono = localFont({
   variable: "--font-jetbrains-mono",
-  src: [{ path: "../public/fonts/JetBrainsMono-Variable.ttf", style: "normal" }],
+  src: [{ path: "../../public/fonts/JetBrainsMono-Variable.ttf", style: "normal" }],
   display: "swap",
 });
 
