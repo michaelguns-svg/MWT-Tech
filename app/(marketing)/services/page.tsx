@@ -52,10 +52,10 @@ export default function ServicesPage() {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="group rounded-2xl border border-mw-line bg-white p-6 transition hover:border-mw-secondary hover:shadow-lg hover:shadow-mw-secondary/5"
+                className="group rounded-2xl border border-mw-primary bg-mw- p-6 transition hover:bg-mw-secondary hover:shadow-lg hover:shadow-mw-secondary/20"
               >
-                <h3 className="font-display text-lg font-bold text-mw-primary">{s.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-mw-ink/65">{s.summary}</p>
+                <h3 className="font-display text-lg font-bold text-white">{s.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">{s.summary}</p>
 
               </Link>
             ))}
