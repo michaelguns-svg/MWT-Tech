@@ -32,7 +32,14 @@ export default async function ContactPage({
         <div className="space-y-8">
           <div>
             <Eyebrow>Headquarters</Eyebrow>
-            <p className="mt-3 text-mw-ink/70">Colombo, Sri Lanka</p>
+            <a
+              href="https://maps.app.goo.gl/1tY6TsvdXmYuFvXs8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 block text-mw-ink/70 underline decoration-mw-line underline-offset-2 transition hover:text-mw-secondary"
+            >
+              2nd Floor, Oceanica Tower, 490 Galle Rd, Colombo 00300, Sri Lanka
+            </a>
             <p className="mt-1 text-sm text-mw-ink/50">
               Serving clients across Sri Lanka, India, the UAE, and expanding into KSA, Oman, Switzerland &amp;
               the USA.
@@ -41,8 +48,8 @@ export default async function ContactPage({
 
           <div className="overflow-hidden rounded-2xl border border-mw-line">
             <iframe
-              title="Mawkish Technologies — Colombo, Sri Lanka"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=79.82%2C6.87%2C79.90%2C6.95&layer=mapnik&marker=6.9271%2C79.8612"
+              title="Mawkish Technologies — Oceanica Tower, Colombo, Sri Lanka"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=79.8419%2C6.8938%2C79.8619%2C6.9138&layer=mapnik&marker=6.9037886%2C79.8519282"
               className="h-64 w-full"
               loading="lazy"
             />

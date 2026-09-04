@@ -27,7 +27,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "3", label: "Enterprise Platforms", detail: "SAP, Salesforce & Odoo" },
+  { value: "4", label: "Enterprise Platforms", detail: "SAP, Salesforce & Odoo" },
   { value: "8", label: "Industries Served" },
   { value: "7", label: "Active & Target Markets" },
   { value: "6", label: "Core Operating Principles" },
@@ -294,11 +294,12 @@ export type Region = {
 export const regions: Region[] = [
   { region: "Sri Lanka", activeMarket: true, targetMarket: true, presence: "Headquarters", focus: "SAP, Salesforce, Odoo, Digital Transformation" },
   { region: "India", activeMarket: true, targetMarket: true, presence: "Delivery & Partner Ecosystem", focus: "SAP & Enterprise Applications" },
-  { region: "UAE", activeMarket: true, targetMarket: true, presence: "Partner Network", focus: "Digital Transformation & CRM" },
-  { region: "KSA", activeMarket: false, targetMarket: true, presence: "Expansion Market", focus: "SAP, Cloud & Transformation Projects" },
+  { region: "KSA", activeMarket: true, targetMarket: true, presence: "Expansion Market", focus: "SAP, Cloud & Transformation Projects" },
+  { region: "UAE", activeMarket: false, targetMarket: true, presence: "Partner Network", focus: "Digital Transformation & CRM" },
+  { region: "USA", activeMarket: false, targetMarket: true, presence: "Business Development Activities", focus: "Technology Consulting & Strategic Partnerships" },
   { region: "Oman", activeMarket: false, targetMarket: true, presence: "Expansion Market", focus: "ERP & Business Process Transformation" },
   { region: "Switzerland", activeMarket: false, targetMarket: true, presence: "Strategic Growth Market", focus: "Consulting & Enterprise Technology" },
-  { region: "USA", activeMarket: true, targetMarket: true, presence: "Business Development Activities", focus: "Technology Consulting & Strategic Partnerships" },
+  
 ];
 
 export const clients = [

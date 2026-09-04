@@ -76,10 +76,10 @@ export default async function ServiceDetailPage({
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="rounded-2xl border border-mw-line bg-white p-6 transition hover:border-mw-secondary"
+                  className="group rounded-2xl border border-mw-line p-7 transition hover:border-mw-secondary hover:shadow-lg hover:shadow-mw-secondary/5"
                 >
-                  <h3 className="font-display text-base font-bold text-mw-primary">{s.name}</h3>
-                  <p className="mt-2 text-sm text-mw-ink/65">{s.summary}</p>
+                  <h3 className="font-display text-lg font-bold text-white">{s.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/70">{s.summary}</p>
                 </Link>
               ))}
             </div>
