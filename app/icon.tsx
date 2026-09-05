@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-export const size = { width: 32, height: 32 };
+export const size = { width: 96, height: 96 };
 export const contentType = "image/png";
 
 export default function Icon() {
@@ -22,7 +22,7 @@ export default function Icon() {
           justifyContent: "center",
         }}
       >
-        <img src={logoDataUri} width={26} height={26} alt="" style={{ objectFit: "contain" }} />
+        <img src={logoDataUri} width={78} height={78} alt="" style={{ objectFit: "contain" }} />
       </div>
     ),
     size
